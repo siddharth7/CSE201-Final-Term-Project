@@ -9,26 +9,6 @@
 <title>Admin</title>
 </head>
 <body>
-<%
-		try
-			{
-			if(session.getAttribute("userActive").toString().compareTo("true") == 0){
-			request.getRequestDispatcher("filterdata.jsp").forward(request,response);
-		}
-		else
-		{
-			request.getRequestDispatcher("user.jsp").forward(request,response);
-		}
-			}
-	catch(Exception e)
-	{
-		
-	}
-%>
-<form action="filtedata" method="post">
-		<input name="userName" type="text" placeholder="username"/>
-		<input name="password" type="password" placeholder="password"/>
-		<input type="submit" />
-	</form>
+<h1>hello user, please fill your detais</h1>
 </body>
 </html>

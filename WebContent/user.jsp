@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-
+	<form class="form-horizontal" action="finaluser" method="post" enctype="multipart/form-data">
 	<div class="container">
 		<ul class="nav nav-tabs" id="tabs" style="margin-bottom: 15px; background-color: #4B4C56;">
 			<li class="active"><a href="#personal" data-toggle="tab">Personal Information</a></li>
@@ -50,40 +50,41 @@
 		<div id="myTabContent" class="tab-content">
 			<div class="tab-pane fade active in" id="personal">
 				<!-- <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p> -->
-				<form class="form-horizontal" action="finaluser" method="post">
-					<fieldset>
+
+<!-- 				<form class="form-horizontal" action="finaluser" method="post">
+ -->					<fieldset>
 						<div class="form-group">
 						  	<label for="inputEmail" class="col-md-3 control-label" style = "font-size: 17px;">Email*</label>
 							<div class="col-md-9">
-								<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email">
+								<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 						  	<label for="name" class="col-md-3 control-label" style = "font-size: 17px;">Name*</label>
 							<div class="col-md-9">
-								<input class="form-control" id="name" name="name" placeholder="">
+								<input class="form-control" id="name" name="name" placeholder="" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 						  	<label for="enrollmentNumber" class="col-md-3 control-label" style = "font-size: 17px;">Enrollment Number*</label>
 							<div class="col-md-9">
-								<input class="form-control" id="enrollmentNumber" name="enrollmentNumber" placeholder="">
+								<input class="form-control" id="enrollmentNumber" name="enrollmentNumber" placeholder="" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 						  	<label for="addressOfCorrespondence" class="col-md-3 control-label" style = "font-size: 17px;">Address of Correspondence*</label>
 							<div class="col-md-9">
-								<textarea class="form-control" rows="3" id="addressOfCorrespondence" name="addressOfCorrespondence"></textarea>
+								<textarea class="form-control" rows="3" id="addressOfCorrespondence" name="addressOfCorrespondence" required></textarea>
 							</div>
 						</div>
 
 						<div class="form-group">
 						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Mobile*</label>
 							<div class="col-md-9">
-								<input class="form-control" id="mobile" name="mobile" placeholder="">
+								<input class="form-control" id="mobile" name="mobile" placeholder="" required>
 							</div>
 						</div>
 
@@ -93,19 +94,19 @@
 							<div class="col-md-9">
 								<div class="radio radio-primary">
 									<label>
-										<input type="radio" name="stream" id="optionsRadios1" value="Computer Science" checked="">
+										<input type="radio" name="phdStream" id="optionsRadios1" value="Computer Science" checked="">
 									Computer Science
 									</label>
 								</div>
 								<div class="radio radio-primary">
 								  	<label>
-								    	<input type="radio" name="stream" id="optionsRadios2" value="Electronics and Communication">
+								    	<input type="radio" name="phdStream" id="optionsRadios2" value="Electronics and Communication">
 								    Electronics and Communication
 								  </label>
 								</div>
 								<div class="radio radio-primary">
 								  	<label>
-								    	<input type="radio" name="stream" id="optionsRadios2" value="Computational Biology">
+								    	<input type="radio" name="phdStream" id="optionsRadios2" value="Computational Biology">
 								    Computational Biology
 								  </label>
 								</div>
@@ -202,11 +203,29 @@
 								<textarea class="form-control" rows="3" id="permanentAddress" name="permanentAddress"></textarea>
 							</div>
 						</div> -->
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Disabled*</label>
+
+							<div class="col-md-9">
+								<br>
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="disabled" id="optionsRadios1" value="Yes" checked="">
+									Yes
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="disabled" id="optionsRadios2" value="No">
+								    No
+								  </label>
+								</div>
+							</div>
+						</div>
 
 						<div class="form-group">
 						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Date of Birth*</label>
 							<div class="col-md-9">
-								<input class="form-control" id="DateofBirth" name="DateofBirth" placeholder="">
+								<input class="form-control" id="DateofBirth" name="DateofBirth" placeholder="" required>
 							</div>
 						</div>
 
@@ -232,7 +251,7 @@
 						<div class="form-group">
 						  	<label for="fatherName" class="col-md-3 control-label" style = "font-size: 17px;">Father's Name*</label>
 							<div class="col-md-9">
-								<input type="" class="form-control" id="fatherName" name="fatherName" placeholder="">
+								<input type="" class="form-control" id="fatherName" name="fatherName" placeholder="" required>
 							</div>
 						</div>
 
@@ -249,14 +268,14 @@
 						<div class="form-group">
 						  	<label for="permanentAddress" class="col-md-3 control-label" style = "font-size: 17px;">Permanent Address*</label>
 							<div class="col-md-9">
-								<textarea class="form-control" rows="3" id="permanentAddress" name="permanentAddress"></textarea>
+								<textarea class="form-control" rows="3" id="permanentAddress" name="permanentAddress" required></textarea>
 							</div>
 						</div>
 
 						<div class="form-group">
 						  	<label for="pincode" class="col-md-3 control-label" style = "font-size: 17px;">Pin Code</label>
 							<div class="col-md-9">
-								<input type="email" class="form-control" id="pincode" name="pincode" placeholder="">
+								<input type="" class="form-control" id="pincode" name="pincode" placeholder="">
 							</div>
 						</div>
 
@@ -267,26 +286,598 @@
 						</div>
 
 					</fieldset>
-				</form>
-			</div>
+<!-- 				</form>
+ -->		</div>
 
 			<div class="tab-pane fade" id="educational">
-				<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
-			</div>
+<!-- 				<form class="form-horizontal" action="finaluser" method="post">
+ -->					<fieldset>
+						<legend>Schooling Information</legend>
+
+						<div class="form-group">
+						  	<label for="board10" class="col-md-3 control-label" style = "font-size: 17px;">Xth Board*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="board10" name="board10" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="board10" class="col-md-3 control-label" style = "font-size: 17px;">Xth Marks(%)*</label>
+							<div class="col-md-9">
+								<input type = "number" class="form-control" id="board10p" name="board10p" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="pass10" class="col-md-3 control-label" style = "font-size: 17px;">Year of Passing Xth*</label>
+
+							<div class="col-md-9">
+								<select id="pass10" name="pass10" class="form-control">
+									<option value="2001">2001</option>
+									<option value="2002">2002</option>
+									<option value="2003">2003</option>
+									<option value="2004">2004</option>
+									<option value="2005">2005</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="board12" class="col-md-3 control-label" style = "font-size: 17px;">XIIth Board*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="board12" name="board12" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="board12" class="col-md-3 control-label" style = "font-size: 17px;">XIIth Marks(%)*</label>
+							<div class="col-md-9">
+								<input type = "number" class="form-control" id="board12p" name="board12p" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="pass12" class="col-md-3 control-label" style = "font-size: 17px;">Year of Passing XIIth*</label>
+
+							<div class="col-md-9">
+								<select id="pass12" name="pass12" class="form-control">
+									<option value="2001">2001</option>
+									<option value="2002">2002</option>
+									<option value="2003">2003</option>
+									<option value="2004">2004</option>
+									<option value="2005">2005</option>
+								</select>
+							</div>
+						</div>
+
+						<br>
+
+						<legend>Graduation Information</legend>
+
+						<div class="form-group">
+						  	<label for="gradDegree" class="col-md-3 control-label" style = "font-size: 17px;">Degree*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="gradDegree" name="gradDegree" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="gradDept" class="col-md-3 control-label" style = "font-size: 17px;">Department/Discipline*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="gradDept" name="gradDept" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="gradCollege" class="col-md-3 control-label" style = "font-size: 17px;">Name of College*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="gradCollege" name="gradCollege" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="gradUniversity" class="col-md-3 control-label" style = "font-size: 17px;">Name of University*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="gradUniversity" name="gradUniversity" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="gradCity" class="col-md-3 control-label" style = "font-size: 17px;">City*</label>
+							<div class="col-md-9">
+								<input class="form-control" id="gradCity" name="gradCity" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="gradState" class="col-md-3 control-label" style = "font-size: 17px;">State*</label>
+
+							<div class="col-md-9">
+								<select id="gradState" name="gradState" class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="gradYear" class="col-md-3 control-label" style = "font-size: 17px;">Year of Graduation*</label>
+
+							<div class="col-md-9">
+								<select id="gradYear" name="gradYear" class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">CGPA or MARKS?</label>
+
+							<div class="col-md-9">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="stream" id="optionsRadios1" value="CGPA" checked="">
+									CGPA
+									</label>
+								</div>
+								<div class="form-group" id="gradCGPAInput" name="gradCGPAInput" style = "margin-top: -17px;">
+									<div class="col-md-3">
+										<input class="form-control" id="gradCGPA" name="gradCGPA" placeholder="">
+									</div>
+									<div class="col-md-3">
+										<select id="gradCGPAScale" name="gradCGPAScale" class="form-control">
+											<option>4</option>
+											<option>10</option>
+										</select>
+									</div>
+								</div>
+								
+								<div class="radio radio-primary">
+								  	<label>
+								    	<input type="radio" name="stream" id="optionsRadios2" value="MARKS">
+								    MARKS(%)
+								  </label>
+								</div>
+								<div class="form-group" id="gradMarksInput" name="gradMarksInput" style = "margin-top: -17px;">
+									<div class="col-md-3">
+										<input class="form-control" id="gradCGPA" placeholder="">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<div class="col-md-offset-1 col-md-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox">&nbsp;&nbsp;&nbsp;Are you applying for ECE PhD?
+									</label>
+								</div>
+							</div>
+						</div>
+						<div id="ecePref" style = "display: none;">
+							<div class="col-md-offset-1 col-md-10">
+								<br>
+								<legend>ECE PhD Subject Preference</legend>
+
+								<p>You are required to select 4 subjects if you are an under-graduate otherwise you need to fill 3. </p>
+
+								<div class="form-group">
+									<label for="ecePref1" class="col-md-3 control-label" style = "font-size: 17px;">Preference 1*</label>
+
+									<div class="col-md-9">
+										<select id="ecePref1" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="ecePref2" class="col-md-3 control-label" style = "font-size: 17px;">Preference 2*</label>
+
+									<div class="col-md-9">
+										<select id="ecePref2" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="ecePref3" class="col-md-3 control-label" style = "font-size: 17px;">Preference 3*</label>
+
+									<div class="col-md-9">
+										<select id="ecePref3" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="ecePref4" class="col-md-3 control-label" style = "font-size: 17px;">Preference 4</label>
+
+									<div class="col-md-9">
+										<select id="ecePref4" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<div class="col-md-offset-1 col-md-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox">&nbsp;&nbsp;&nbsp;Have you completed your Post Graduation?
+									</label>
+								</div>
+							</div>
+						</div>
+						<div id="postGrad" style="display:none;">
+							<div class="col-md-offset-1 col-md-10">
+								<br>
+								<legend>Post - Graduation Information</legend>
+
+								<div class="form-group">
+								  	<label for="postCollege" class="col-md-3 control-label" style = "font-size: 17px;">Name of College</label>
+									<div class="col-md-9">
+										<input class="form-control" id="postCollege" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="postCity" class="col-md-3 control-label" style = "font-size: 17px;">City</label>
+									<div class="col-md-9">
+										<input class="form-control" id="postCity" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="postState" class="col-md-3 control-label" style = "font-size: 17px;">State</label>
+
+									<div class="col-md-9">
+										<select id="postState" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="postDept" class="col-md-3 control-label" style = "font-size: 17px;">Department/Discipline</label>
+									<div class="col-md-9">
+										<input class="form-control" id="postDept" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="postDegree" class="col-md-3 control-label" style = "font-size: 17px;">Degree</label>
+									<div class="col-md-9">
+										<input class="form-control" id="postDegree" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="PostThesis" class="col-md-3 control-label" style = "font-size: 17px;">Thesis Title</label>
+									<div class="col-md-9">
+										<input class="form-control" id="PostThesis" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="postYear" class="col-md-3 control-label" style = "font-size: 17px;">Year of Post-Graduation*</label>
+
+									<div class="col-md-9">
+										<select id="postYear" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-3 control-label" style = "font-size: 17px;">CGPA or MARKS?</label>
+
+									<div class="col-md-9">
+										<div class="radio radio-primary">
+											<label>
+												<input type="radio" name="postCGMARKS" id="optionsRadios1" value="option1" checked="">
+											CGPA
+											</label>
+										</div>
+										<div class="form-group" id="postCGPAInput" style = "margin-top: -17px;">
+											<div class="col-md-3">
+												<input class="form-control" id="gradCGPA" placeholder="">
+											</div>
+											<div class="col-md-3">
+												<select id="postCGPAScale" class="form-control">
+													<option>4</option>
+													<option>10</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="radio radio-primary">
+										  	<label>
+										    	<input type="radio" name="postCGMARKS" id="optionsRadios2" value="option2">
+										    MARKS(%)
+										  </label>
+										</div>
+										<div class="form-group" id="gradMarksInput" style = "margin-top: -17px;">
+											<div class="col-md-3">
+												<input class="form-control" id="gradCGPA" placeholder="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<div class="col-md-offset-1 col-md-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox">&nbsp;&nbsp;&nbsp;Other Academic Degrees?
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="other" style="display:none;">
+							<div class="col-md-offset-1 col-md-10">
+								<br>
+								<legend>Other Academic Degrees</legend>
+
+								<div class="form-group">
+								  	<label for="examName" class="col-md-3 control-label" style = "font-size: 17px;">Exam Name</label>
+									<div class="col-md-9">
+										<input class="form-control" id="examName" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="examSubject" class="col-md-3 control-label" style = "font-size: 17px;">Subject</label>
+									<div class="col-md-9">
+										<input class="form-control" id="examSubject" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="examYear" class="col-md-3 control-label" style = "font-size: 17px;">Year*</label>
+
+									<div class="col-md-9">
+										<select id="examYear" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="examScore" class="col-md-3 control-label" style = "font-size: 17px;">Score</label>
+									<div class="col-md-9">
+										<input type = "number" class="form-control" id="examScore" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="examRank" class="col-md-3 control-label" style = "font-size: 17px;">Rank</label>
+									<div class="col-md-9">
+										<input type="number" class="form-control" id="examRank" placeholder="">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<div class="col-md-offset-1 col-md-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox">&nbsp;&nbsp;&nbsp;Taken GATE Exam?
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="gate" style="display:none;">
+							<div class="col-md-offset-1 col-md-10">
+								<br>
+								<legend>Gate</legend>
+
+								<div class="form-group">
+								  	<label for="gateArea" class="col-md-3 control-label" style = "font-size: 17px;">Area</label>
+									<div class="col-md-9">
+										<input class="form-control" id="gateArea" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="gateYear" class="col-md-3 control-label" style = "font-size: 17px;">Year of Graduation*</label>
+
+									<div class="col-md-9">
+										<select id="gateYear" class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="gateArea" class="col-md-3 control-label" style = "font-size: 17px;">Marks(Out Of 100)</label>
+									<div class="col-md-9">
+										<input type="number" class="form-control" id="gateArea" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="gateScore" class="col-md-3 control-label" style = "font-size: 17px;">Score</label>
+									<div class="col-md-9">
+										<input type="number" class="form-control" id="gateScore" placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+								  	<label for="gateRank" class="col-md-3 control-label" style = "font-size: 17px;">Rank</label>
+									<div class="col-md-9">
+										<input type="number" class="form-control" id="gateRank" placeholder="">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<br><br><br>
+
+						<legend>Achievements, CV and Statement of Purpose</legend>
+
+						<div class="form-group">
+						  	<label for="achievements" class="col-md-3 control-label" style = "font-size: 17px;">Achievements (Other information like ranks, medals etc.)</label>
+							<div class="col-md-9">
+								<input class="form-control" id="achievements" name="achievements" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+						    <label for="cv" class="col-md-3 control-label" style = "font-size: 17px;">CV/Resume*</label>
+
+					      	<div class="col-md-9">
+					        	<input type="text" readonly="" class="form-control" placeholder="Browse...">
+					        	<input type="file" id="cv" name="uploadFile" multiple="">
+					      	</div>
+						</div>
+
+						<div class="form-group">
+						    <label for="sop" class="col-md-3 control-label" style = "font-size: 17px;">Statement of Purpose*</label>
+
+					      	<div class="col-md-9">
+					        	<input type="text" readonly="" class="form-control" placeholder="Browse...">
+					        	<input type="file" id="sop" multiple="">
+					      	</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-3 col-md-offset-5">
+								<button type="submit" class="btn btn-primary">Save</button>
+							</div>
+						</div>
+					</fieldset>
+<!-- 				</form>
+ -->		</div>
 
 			<div class="tab-pane fade" id="payment">
-				<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+				<!-- <div class="alert alert-dismissible alert-info">
+					You can pay the application fee of INR 350 online using Credit/Debit card or NetBanking.
+				</div> -->
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						You can pay the application fee of INR 350 online using Credit/Debit card or NetBanking.
+					</div>
+				</div>
+
+				<a href="" class="btn btn-raised btn-success">Pay using Debit/Credit Card or Net Banking</a>		
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						You can also make your payment using a Demand Draft of INR 350 in favour of “IIIT-Delhi Collections Account” payable at "Delhi" to the following address:
+                        <strong>
+                        <br>Assistant Manager (Academics)
+                        <br>A-109, Academics Building, IIIT-Delhi
+                        <br>Okhla Industrial Estate, Phase-3
+                        <br>New Delhi - 110020
+                        <br>
+                        </strong>
+                    	Please fill in the details of your demand draft in the following form.
+					</div>
+				</div>
+
+				<div class="form-group">
+				  	<div class="col-md-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Will you be paying through Demand Draft
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="bankName" class="col-md-3 control-label" style = "font-size: 17px;">Bank Name</label>
+					<div class="col-md-9">
+					<input class="form-control" id="bankName" placeholder="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="branch" class="col-md-3 control-label" style = "font-size: 17px;">Branch</label>
+					<div class="col-md-9">
+					<input class="form-control" id="branch" placeholder="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="ddnum" class="col-md-3 control-label" style = "font-size: 17px;">Demand Draft Number</label>
+					<div class="col-md-9">
+					<input class="form-control" id="ddnum" placeholder="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-3 col-md-offset-3">
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+
 			</div>
 
 			<div class="tab-pane fade" id="feedback">
-				<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+				
 			</div>
 
 			<div class="tab-pane fade" id="submit">
-				<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+				<!-- <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p> -->
+			<div class="form-group">
+							<div class="col-md-3 col-md-offset-5">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
 			</div>
 		</div>
 	</div>
+</form>
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

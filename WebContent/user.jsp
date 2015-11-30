@@ -222,10 +222,17 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<!-- <div class="form-group">
 						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Date of Birth*</label>
 							<div class="col-md-9">
 								<input class="form-control" id="DateofBirth" name="DateofBirth" placeholder="" required>
+							</div>
+						</div> -->
+
+						<div class="form-group">
+						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Date of Birth*</label>
+							<div class="col-md-2">
+								<input type="date" class="form-control" name="DateofBirth" id="dob" placeholder="">
 							</div>
 						</div>
 
@@ -864,16 +871,152 @@
 			</div>
 
 			<div class="tab-pane fade" id="feedback">
-				
+				<div class="form-group">
+					<label class="col-md-3 control-label" style = "font-size: 17px;">How did you first hear about the IIIT-Delhi PhD program?*</label>
+
+					<div class="col-md-9">
+						<div class="radio radio-primary">
+							<label>
+								<input type="radio" name="stream" id="optionsRadios1" value="option1" checked="">
+							Advertisement in the Dainik Jagran
+							</label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios2" value="option2">
+						    Advertisement in the Hindu
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios3" value="option3">
+						    Advertisement in the Hindustan Times
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios4" value="option4">
+						    PhD flier
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios5" value="option5">
+						    IIIT-Delhi Website
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios6" value="option6">
+						    Other Website
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios7" value="option7">
+						    Talk/Presentation
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios8" value="option8">
+						    College/Teacher/Academic relation
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios9" value="option9">
+						    Friend/Family/Personal relation
+						  </label>
+						</div>
+						<div class="radio radio-primary">
+						  	<label>
+						    	<input type="radio" name="stream" id="optionsRadios10" value="option10">
+						    Other
+						  </label>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="form-group"> -->
+					<label class="col-md-3 control-label" style = "font-size: 17px;">Why are you interested in the IIIT-Delhi PhD program?*</label>
+
+					<div class="col-md-9">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Faculty profile
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Aligned research area/research projects
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Collaborative PhD program
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Sponsored PhD program
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;No GATE requirement
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Attractive stipend and other benefits
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Located in Delhi
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;May not get into IIT
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;I want to do PhD. IIIT-Delhi is one good option
+							</label>
+						</div>
+
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">&nbsp;&nbsp;&nbsp;Completely different reason. If none of the above applies, you may check this
+							</label>
+						</div>
+					</div>
+				<!-- </div> -->
+
+				<div class="form-group">
+					<div class="col-md-3 col-md-offset-3">
+						<button type="submit" class="btn btn-primary">Save</button>
+					</div>
+				</div>
 			</div>
 
 			<div class="tab-pane fade" id="submit">
-				<!-- <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p> -->
-			<div class="form-group">
-							<div class="col-md-3 col-md-offset-5">
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</div>
-						</div>
+				<div class="alert alert-dismissible alert-warning">
+					Please complete and save all the fields before you click the submit button. Once you have submitted you will not be able to edit any field.
+				</div>
+
+				<a href="" class="btn btn-success disabled">Submit</a>
 			</div>
 		</div>
 	</div>

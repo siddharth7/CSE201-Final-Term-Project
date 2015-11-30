@@ -448,7 +448,7 @@
 						  	<div class="col-md-offset-1 col-md-10">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox">&nbsp;&nbsp;&nbsp;Are you applying for ECE PhD?
+										<input id = "eceShow" type="checkbox">&nbsp;&nbsp;&nbsp;Are you applying for ECE PhD?
 									</label>
 								</div>
 							</div>
@@ -507,7 +507,7 @@
 						  	<div class="col-md-offset-1 col-md-10">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox">&nbsp;&nbsp;&nbsp;Have you completed your Post Graduation?
+										<input id="postGradShow" type="checkbox">&nbsp;&nbsp;&nbsp;Have you completed your Post Graduation?
 									</label>
 								</div>
 							</div>
@@ -614,12 +614,12 @@
 						  	<div class="col-md-offset-1 col-md-10">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox">&nbsp;&nbsp;&nbsp;Other Academic Degrees?
+										<input id="otherShow" type="checkbox">&nbsp;&nbsp;&nbsp;Other Academic Degrees?
 									</label>
 								</div>
 							</div>
 						</div>
-						<div class="other" style="display:none;">
+						<div id="other" style="display:none;">
 							<div class="col-md-offset-1 col-md-10">
 								<br>
 								<legend>Other Academic Degrees</legend>
@@ -668,12 +668,12 @@
 						  	<div class="col-md-offset-1 col-md-10">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox">&nbsp;&nbsp;&nbsp;Taken GATE Exam?
+										<input id="gateShow" type="checkbox">&nbsp;&nbsp;&nbsp;Taken GATE Exam?
 									</label>
 								</div>
 							</div>
 						</div>
-						<div class="gate" style="display:none;">
+						<div id="gate" style="display:none;">
 							<div class="col-md-offset-1 col-md-10">
 								<br>
 								<legend>Gate</legend>
@@ -983,6 +983,32 @@
             // This command is used to initialize some elements and make them work properly
             $.material.init();
         });
+    </script>
+    <script type="text/javascript">
+    	$("#eceShow").change(function(){
+    		if(this.checked)
+    			$("#ecePref").css("display", "block");
+    		else
+    			$("#ecePref").css("display", "none");
+    	});
+    	$("#postGradShow").change(function(){
+    		if(this.checked)
+    			$("#postGrad").css("display", "block");
+    		else
+    			$("#postGrad").css("display", "none");
+    	});
+    	$("#otherShow").change(function(){
+    		if(this.checked)
+    			$("#other").css("display", "block");
+    		else
+    			$("#other").css("display", "none");
+    	});
+    	$("#gateShow").change(function(){
+    		if(this.checked)
+    			$("#gate").css("display", "block");
+    		else
+    			$("#gate").css("display", "none");
+    	});
     </script>
 </body>
 </html>

@@ -112,6 +112,64 @@ public class showdata extends HttpServlet {
 		gradState=request.getParameter("gradState").toString();	
 		postGradState=request.getParameter("postGradState").toString();	
 	
+		String tenRange=null;
+		String percentTen=null;
+		String twelveRange=null;
+		String percentTwelve=null;
+		String gradMarksRange=null;
+		String percentGrad=null;
+		String postGradMarksRange=null;
+		String percentPostGrad=null;
+		String gateRange=null;
+		String gateScore=null;
+
+		try
+		{
+			tenRange=request.getParameter("tenRange").toString();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		percentTen=request.getParameter("percentTen").toString();	
+		try
+		{
+			twelveRange=request.getParameter("twelveRange").toString();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		percentTwelve=request.getParameter("percentTwelve").toString();	
+		try
+		{
+			gradMarksRange=request.getParameter("gradMarksRange").toString();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		percentGrad=request.getParameter("percentGrad").toString();	
+		try
+		{
+			postGradMarksRange=request.getParameter("postGradMarksRange").toString();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		percentPostGrad=request.getParameter("percentPostGrad").toString();	
+		try
+		{
+			gateRange=request.getParameter("gateRange").toString();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		gateScore=request.getParameter("gateScore").toString();	
+
+
 		BufferedReader buffr = null;
 		int flag=0;
 		String line;
@@ -383,7 +441,8 @@ public class showdata extends HttpServlet {
 							
 						}
 						}
-				}if(postGradState!="" && flag==0) //4
+				}
+				if(postGradState!="" && flag==0) //4
 				{
 					// System.out.println(postGradState);
 					if(postGradState.equals("All"))
@@ -400,7 +459,89 @@ public class showdata extends HttpServlet {
 							
 						}
 						}
+				}
+				//System.out.println(tenRange+" "+data[19]+percentTen);
+				if(tenRange!=null && flag==0) //5
+				{
+					
+					//System.out.println(tenRange+" "+data[19]+percentTen);
+					if(tenRange.equals("Greater than") && Double.parseDouble(data[19])>Double.parseDouble(percentTen))
+						flag=0;
+					else if(tenRange.equals("Equals") && Double.parseDouble(data[19])==Double.parseDouble(percentTen))
+						flag=0;
+					else if(tenRange.equals("Lesser than") && Double.parseDouble(data[19])<Double.parseDouble(percentTen))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
+				}
+				if(twelveRange!=null && flag==0) //5
+				{
+					
+					//System.out.println(twelveRange+" "+data[19]+percentTwelve);
+					if(twelveRange.equals("Greater than") && Double.parseDouble(data[22])>Double.parseDouble(percentTwelve))
+						flag=0;
+					else if(twelveRange.equals("Equals") && Double.parseDouble(data[22])==Double.parseDouble(percentTwelve))
+						flag=0;
+					else if(twelveRange.equals("Lesser than") && Double.parseDouble(data[22])<Double.parseDouble(percentTwelve))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
 				}	
+				if(gradMarksRange!=null && flag==0) //5
+				{
+					
+					//System.out.println(gradMarksRange+" "+data[19]+percentGrad);
+					if(gradMarksRange.equals("Greater than") && Double.parseDouble(data[34])>Double.parseDouble(percentGrad))
+						flag=0;
+					else if(gradMarksRange.equals("Equals") && Double.parseDouble(data[34])==Double.parseDouble(percentGrad))
+						flag=0;
+					else if(gradMarksRange.equals("Lesser than") && Double.parseDouble(data[34])<Double.parseDouble(percentGrad))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
+				}
+				if(postGradMarksRange!=null && flag==0) //5
+				{
+					
+					//System.out.println(postGradMarksRange+" "+data[19]+percentPostGrad);
+					if(postGradMarksRange.equals("Greater than") && Double.parseDouble(data[51])>Double.parseDouble(percentPostGrad))
+						flag=0;
+					else if(postGradMarksRange.equals("Equals") && Double.parseDouble(data[51])==Double.parseDouble(percentPostGrad))
+						flag=0;
+					else if(postGradMarksRange.equals("Lesser than") && Double.parseDouble(data[51])<Double.parseDouble(percentPostGrad))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
+				}
+				if(gateRange!=null && flag==0) //5
+				{
+					
+					//System.out.println(gateRange+" "+data[19]+percentTen);
+					if(gateRange.equals("Greater than") && Double.parseDouble(data[62])>Double.parseDouble(gateScore))
+						flag=0;
+					else if(gateRange.equals("Equals") && Double.parseDouble(data[62])==Double.parseDouble(gateScore))
+						flag=0;
+					else if(gateRange.equals("Lesser than") && Double.parseDouble(data[62])<Double.parseDouble(gateScore))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
+				}
+				
 			 	if(flag==1)
 			 		System.out.println("na ho paya");
 			 	else

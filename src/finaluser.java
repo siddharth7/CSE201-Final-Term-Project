@@ -1,4 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -139,7 +142,7 @@ public class finaluser extends HttpServlet {
 		{
 			
 			//System.out.println("bhai data aaya"+request.getParameterValues("eceShow")[0]);
-			if(request.getParameterValues("eceShow")[0].endsWith("eceShow"))
+			if(request.getParameterValues("eceShow")[0].equals("eceShow"))
 			{
 			eceShow="YES";
 			pref1=request.getParameter("ecePref1").toString();
@@ -169,6 +172,8 @@ public class finaluser extends HttpServlet {
 		 String postMarks=null;
 		try
 		{
+			if(request.getParameterValues("postGradShow")[0].equals("postGradShow"))
+			{
 			postGradShow="YES";
 			postCollege=request.getParameter("postCollege").toString();
 			postCity=request.getParameter("postCity").toString();
@@ -177,7 +182,7 @@ public class finaluser extends HttpServlet {
 			postDegree=request.getParameter("postDegree").toString();
 			postThesis=request.getParameter("postThesis").toString();
 			postYear=request.getParameter("postYear").toString();
-
+			}
 		}
 		catch(Exception e)
 		{
@@ -197,6 +202,56 @@ public class finaluser extends HttpServlet {
 				postMarks= request.getParameter("postMarks").toString();
 			}
 		}
+
+		String otherShow=null;
+		String examName=null;
+		String examSubject=null;
+		String examYear=null;
+		String examScore=null;
+		String examRank=null;
+		// System.out.println(request.getParameterValues("otherShow")[0]);
+		try
+		{
+			if(request.getParameterValues("otherShow")[0].equals("otherShow"))
+			{
+				otherShow="YES";
+				examName=request.getParameter("examName").toString();
+				examSubject=request.getParameter("examSubject").toString();
+				examYear=request.getParameter("examYear").toString();
+				examScore=request.getParameter("examScore").toString();
+				examRank=request.getParameter("examRank").toString();
+
+			}
+		}
+		catch(Exception e)
+		{
+				otherShow="NO";
+		}
+
+		String gateShow=null;
+		String gateArea=null;
+		String gateYear=null;
+		String gateMarks=null;
+		String gateScore=null;
+		String gateRank=null;
+		try
+		{
+			if(request.getParameterValues("gateShow")[0].equals("gateShow"))
+			{
+				gateShow="YES";
+				gateArea=request.getParameter("gateArea").toString();
+				gateYear=request.getParameter("gateYear").toString();
+				gateMarks=request.getParameter("gateMarks").toString();
+				gateScore=request.getParameter("gateScore").toString();
+				gateRank=request.getParameter("gateRank").toString();
+
+			}
+		}
+		catch(Exception e)
+		{
+				gateShow="NO";
+		}
+
 		String achievements=request.getParameter("achievements").toString();
 		
 		String alldatastring=inputEmail+','+name+','+enrollmentNumber+','+addressOfCorrespondence+','+mobile+','+phdStream+','+PhDAreaPreference1+
@@ -206,9 +261,16 @@ public class finaluser extends HttpServlet {
 							','+gradCollege+','+gradUniversity+','+gradCity+','+gradState+','+gradYear+','+stream+','+gradCGPA+
 							','+gradCGPAScale+','+gradMarks+','+eceShow+','+pref1+','+pref2+','+pref3+','+pref4+','+
 							postGradShow+','+postCollege+','+postCity+','+postState+','+postDept+','+postDegree+','+postThesis+','+
-							postYear+','+postCGMARKS+','+postCGPAScale+','+postCGPAScale+','+postMarks+','
-							+achievements;
+							postYear+','+postCGMARKS+','+postCGPA+','+postCGPAScale+','+postMarks+','
+							+otherShow+','+examName+','+examSubject+','+examYear+','+examScore+','+examRank+','
+							+gateShow+','+gateArea+','+gateYear+','+gateMarks+','+gateScore+','+gateRank+','+achievements+',';
 
 		System.out.println(alldatastring);
+		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/siddharthsingh/Desktop/userdata.txt", true)))) {
+		    out.println(alldatastring);
+		}catch (IOException e) {
+		    //exception handling left as an exercise for the reader
+		}
+		
 	}
 }

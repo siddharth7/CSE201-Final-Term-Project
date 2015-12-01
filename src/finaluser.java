@@ -252,7 +252,8 @@ public class finaluser extends HttpServlet {
 				gateShow="NO";
 		}
 
-		String achievements=request.getParameter("achievements").toString();
+		String achievements=null;
+		achievements=request.getParameter("achievements").toString();
 		
 		String alldatastring=inputEmail+','+name+','+enrollmentNumber+','+addressOfCorrespondence+','+mobile+','+phdStream+','+PhDAreaPreference1+
 							','+PhDAreaPreference2+','+PhDAreaPreference3+','+gender+','+category+','+disabled+','+DateofBirth+

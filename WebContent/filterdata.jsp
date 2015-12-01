@@ -11,6 +11,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<!-- Material Design fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.css">
+	<link rel="stylesheet" type="text/css" href="css/ripples.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>current orders</title>
 </head>
@@ -20,7 +30,7 @@
 			request.getRequestDispatcher("admin").forward(request,response);
 		}
 	%>
-<h1> welcome user</h1>
+<!-- <h1> welcome user</h1> -->
 <%!
 public void printorders(javax.servlet.jsp.JspWriter myOut)
 {
@@ -36,10 +46,412 @@ public void printorders(javax.servlet.jsp.JspWriter myOut)
 %>
 <%
 	HttpSession s = request.getSession();
-	printorders(out);
+	// printorders(out);
 %>
+<body>
+	<div class="navbar navbar-inverse" style = "background-color: #4B4C56">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href=""><img src="logo.png" style = "margin-top: -5px"></a>
+			</div>
+			<div class="navbar-collapse collapse navbar-inverse-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="">FAQ</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<form class="form-horizontal" action="showdata" method="post">
+		<div class="container">
+			<ul class="nav nav-tabs" id="tabs" style="margin-bottom: 15px; background-color: #4B4C56;">
+				<li class="active"><a href="#personal" data-toggle="tab">Personal Information</a></li>
+				<li><a href="#educational" data-toggle="tab">Educational Information</a></li>
+				<li><a href="#submit" data-toggle="tab">Submit</a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane fade active in" id="personal">
+					<fieldset>
+						<div class="form-group">
+						  	<label for="inputEmail" class="col-md-3 control-label" style = "font-size: 17px;">Email</label>
+							<div class="col-md-9">
+								<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="name" class="col-md-3 control-label" style = "font-size: 17px;">Name</label>
+							<div class="col-md-9">
+								<input class="form-control" id="name" name="name" placeholder="" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="enrollmentNumber" class="col-md-3 control-label" style = "font-size: 17px;">Enrollment Number</label>
+							<div class="col-md-9">
+								<input class="form-control" id="enrollmentNumber" name="enrollmentNumber" placeholder="" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Category</label>
+
+							<div class="col-md-9">
+								<select id="category" name="category" class="form-control">
+									<option  selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Gender*</label>
+
+							<div class="col-md-9">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="gender" id="optionsRadios1" value="Male" >
+									Male
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="gender" id="optionsRadios2" value="Female">
+								    Female
+								  </label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Disabled*</label>
+
+							<div class="col-md-9">
+								<br>
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="disabled" id="optionsRadios1" value="Yes" >
+									Yes
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="disabled" id="optionsRadios2" value="No">
+								    No
+								  </label>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Date of Birth*</label>
+
+						  	<div class="col-md-9">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="dobTime" id="optionsRadios1" value="Before" >
+									Before
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="dobTime" id="optionsRadios2" value="On">
+								    On
+								  	</label>
+								  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  	<label>
+								    	<input type="radio" name="dobTime" id="optionsRadios3" value="After">
+								    After
+								  	</label>
+								</div>
+
+								<div class="col-md-4">
+									<input type="date" class="form-control" name="DateofBirth" id="dob" placeholder="">
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				<div class="tab-pane fade" id="educational">
+					<fieldset>
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">PhD Stream</label>
+
+							<div class="col-md-9">
+								<select id="phdStream" name="phdStream" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Graduation Degree</label>
+
+							<div class="col-md-9">
+								<select id="gradDegree" name="gradDegree" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Post Graduation Degree</label>
+
+							<div class="col-md-9">
+								<select id="postGradDegree" name="postGradDegree" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Class X Board</label>
+
+							<div class="col-md-9">
+								<select id="board10" name="board10" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Class XII Board</label>
+
+							<div class="col-md-9">
+								<select id="board12" name="board12" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Department(Graduation)</label>
+
+							<div class="col-md-9">
+								<select id="gradDept" name="gradDept" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">Department(Post Graduation)</label>
+
+							<div class="col-md-9">
+								<select id="postGradDept" name="postGradDept" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="gradUniversity" class="col-md-3 control-label" style = "font-size: 17px;">University(Graduation)</label>
+							<div class="col-md-9">
+								<input class="form-control" id="gradUniversity" name="gradUniversity" placeholder="" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label for="postGradUniversity" class="col-md-3 control-label" style = "font-size: 17px;">University(Post Graduation)</label>
+							<div class="col-md-9">
+								<input class="form-control" id="postGradUniversity" name="postGradUniversity" placeholder="" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">State(Graduation from)</label>
+
+							<div class="col-md-9">
+								<select id="gradState" name="gradState" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label" style = "font-size: 17px;">State(Post Graduation from)</label>
+
+							<div class="col-md-9">
+								<select id="postGradState" name="postGradState" class="form-control">
+									<option value="" selected="selected">All</option><option>General</option><option  >OBC</option><option  >SC</option><option>ST</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label class="col-md-3 control-label" style = "font-size: 17px;">Class X Board Percentage</label>
+
+						  	<div class="col-md-6">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="tenRange" id="optionsRadios1" value="Greater than" >
+									Greater than
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="tenRange" id="optionsRadios2" value="Equals">
+								    Equals
+								  	</label>
+								  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  	<label>
+								    	<input type="radio" name="tenRange" id="optionsRadios3" value="Lesser than">
+								    Lesser than
+								  	</label>
+								</div>								
+							</div>
+							<div class="col-md-2">
+								<input type="number" class="form-control" name="percentTen" id="percentTen" placeholder="Percent">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label class="col-md-3 control-label" style = "font-size: 17px;">Class XII Board Percentage</label>
+
+						  	<div class="col-md-6">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="twelveRange" id="optionsRadios1" value="Greater than" >
+									Greater than
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="twelveRange" id="optionsRadios2" value="Equals">
+								    Equals
+								  	</label>
+								  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  	<label>
+								    	<input type="radio" name="twelveRange" id="optionsRadios3" value="Lesser than">
+								    Lesser than
+								  	</label>
+								</div>								
+							</div>
+							<div class="col-md-2">
+								<input type="number" class="form-control" name="percentTwelve" id="percentTwelve" placeholder="Percent">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label class="col-md-3 control-label" style = "font-size: 17px;">Graduation Marks Percentage</label>
+
+						  	<div class="col-md-6">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="gradMarksRange" id="optionsRadios1" value="Greater than" >
+									Greater than
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="gradMarksRange" id="optionsRadios2" value="Equals">
+								    Equals
+								  	</label>
+								  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  	<label>
+								    	<input type="radio" name="gradMarksRange" id="optionsRadios3" value="Lesser than">
+								    Lesser than
+								  	</label>
+								</div>								
+							</div>
+							<div class="col-md-2">
+								<input type="number" class="form-control" name="percentGrad" id="percentGrad" placeholder="Percent">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label class="col-md-3 control-label" style = "font-size: 17px;">Post Graduation Marks Percentage</label>
+
+						  	<div class="col-md-6">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="postGradMarksRange" id="optionsRadios1" value="Greater than" >
+									Greater than
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="postGradMarksRange" id="optionsRadios2" value="Equals">
+								    Equals
+								  	</label>
+								  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  	<label>
+								    	<input type="radio" name="postGradMarksRange" id="optionsRadios3" value="Lesser than">
+								    Lesser than
+								  	</label>
+								</div>								
+							</div>
+							<div class="col-md-2">
+								<input type="number" class="form-control" name="percentPostGrad" id="percentPostGrad" placeholder="Percent">
+							</div>
+						</div>
+
+						<div class="form-group">
+						  	<label class="col-md-3 control-label" style = "font-size: 17px;">Gate Score</label>
+
+						  	<div class="col-md-6">
+								<div class="radio radio-primary">
+									<label>
+										<input type="radio" name="gateRange" id="optionsRadios1" value="Greater than" >
+									Greater than
+									</label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label>
+								    	<input type="radio" name="gateRange" id="optionsRadios2" value="Equals">
+								    Equals
+								  	</label>
+								  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  	<label>
+								    	<input type="radio" name="gateRange" id="optionsRadios3" value="Lesser than">
+								    Lesser than
+								  	</label>
+								</div>								
+							</div>
+							<div class="col-md-2">
+								<input type="number" class="form-control" name="gateScore" id="gateScore" placeholder="Score">
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				<div class="tab-pane fade" id="submit">
+					<div class="form-group">
+					  	<label class="col-md-3 control-label" style = "font-size: 17px;">Applications Dated From</label>
+						<div class="col-md-2">
+							<input type="date" class="form-control" name="startDate" id="startDate" placeholder="">
+						</div>
+					</div>
+
+					<div class="form-group">
+					  	<label class="col-md-3 control-label" style = "font-size: 17px;">Applications Dated Upto</label>
+						<div class="col-md-2">
+							<input type="date" class="form-control" name="endDate" id="endDate" placeholder="">
+						</div>
+					</div>
+
+					<br><br><br>
+					
+					<div class="col-md-offset-2 col-md-3">
+<!-- 						<a href="" class="btn btn-raised btn-success">Show Filtered Result</a>	
+ -->						<button type="submit" class="btn btn-primary">Show Filtered Result</button>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</form>
 <form action="logout" method="get">
 	<button type="submit">LogOut</button>
 </form>
+<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/ripples.min.js"></script>
+	<script src="js/material.min.js"></script>
+	<script>
+        $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
 </body>
 </html>

@@ -426,7 +426,7 @@
 								</div>
 								<div class="form-group" id="gradCGPAInput" name="gradCGPAInput" style = "margin-top: -17px;">
 									<div class="col-md-3">
-										<input type="number" class="form-control" id="gradCGPA" name="gradCGPA" placeholder="">
+										<input type="number" class="form-control" min="0" id="gradCGPA" name="gradCGPA" placeholder="">
 									</div>
 									<div class="col-md-3">
 										<select id="gradCGPAScale" name="gradCGPAScale" class="form-control">
@@ -591,7 +591,7 @@
 											</div>
 											<div class="form-group" id="postCGPAInput" style = "margin-top: -17px;">
 												<div class="col-md-3">
-													<input type="number" class="form-control" id="postCGPA" name="postCGPA" placeholder="">
+													<input type="number" class="form-control" min="0" id="postCGPA" name="postCGPA" placeholder="">
 												</div>
 												<div class="col-md-3">
 													<select id="postCGPAScale" name="postCGPAScale" class="form-control">
@@ -659,14 +659,14 @@
 									<div class="form-group">
 									  	<label for="examScore" class="col-md-3 control-label" style = "font-size: 17px;">Score</label>
 										<div class="col-md-9">
-											<input type = "number" class="form-control" id="examScore" name="examScore" placeholder="">
+											<input type = "number" min="0" max="1000" class="form-control" id="examScore" name="examScore" placeholder="">
 										</div>
 									</div>
 
 									<div class="form-group">
 									  	<label for="examRank" class="col-md-3 control-label" style = "font-size: 17px;">Rank</label>
 										<div class="col-md-9">
-											<input type="number" class="form-control" id="examRank" name="examRank" placeholder="">
+											<input type="number" class="form-control" id="examRank" min="1" name="examRank" placeholder="">
 										</div>
 									</div>
 								</div>
@@ -715,14 +715,14 @@
 									<div class="form-group">
 									  	<label for="gateScore" class="col-md-3 control-label" style = "font-size: 17px;">Score</label>
 										<div class="col-md-9">
-											<input type="number" class="form-control" id="gateScore" name="gateScore" placeholder="">
+											<input type="number" class="form-control" id="gateScore" min="0" name="gateScore" placeholder="">
 										</div>
 									</div>
 
 									<div class="form-group">
 									  	<label for="gateRank" class="col-md-3 control-label" style = "font-size: 17px;">Rank</label>
 										<div class="col-md-9">
-											<input type="number" class="form-control" id="gateRank" name="gateRank" placeholder="">
+											<input type="number" class="form-control" id="gateRank" min="1" name="gateRank" placeholder="">
 										</div>
 									</div>
 								</div>
@@ -979,8 +979,9 @@
 					Please complete and save all the fields before you click the submit button. Once you have submitted you will not be able to edit any field.
 				</div>
 
-				<a href="" class="btn btn-success disabled">Submit</a>
-			</div>
+<!-- 				<a href="" class="btn btn-success">Submit</a>
+ -->				<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
 		</div>
 	</div>
 </form>

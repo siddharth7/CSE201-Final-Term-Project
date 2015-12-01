@@ -3,7 +3,9 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -171,6 +173,7 @@ public class showdata extends HttpServlet {
 
 
 		BufferedReader buffr = null;
+		ArrayList<String> reqdata= new ArrayList<>();
 		int flag=0;
 		String line;
 		try
@@ -545,13 +548,32 @@ public class showdata extends HttpServlet {
 			 	if(flag==1)
 			 		System.out.println("na ho paya");
 			 	else
+			 	{
 			 		System.out.println(data[2]);
+			 		reqdata.add(data[2]);
+			 	}
 			 }
 		}
 		catch(Exception e)
 		{
 			System.out.println("kat gaya");
-		}	
+		}
+		
+		response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();        
+        writer.println("<html>");
+        writer.println("<head>");
+        writer.println("<title>Sample Application Servlet Page</title>");
+        writer.println("</head>");
+        writer.println("<body bgcolor=white>");
+        for(int j = 0;j<reqdata.size();j++)
+        {
+        	writer.println("<h1>"+reqdata.get(j)+"</h1>");
+        }
+        writer.println("</body>");
+        writer.println("</html>");
+
+  
 	}
 
 }

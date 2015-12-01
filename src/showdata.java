@@ -57,6 +57,7 @@ public class showdata extends HttpServlet {
 		String disabled=null;
 		String DateofBirth=null;
 		String dobTime=null;
+
 		inputEmail =request.getParameter("inputEmail").toString();
 		name = request.getParameter("name").toString();
 		enrollmentNumber = request.getParameter("enrollmentNumber").toString();
@@ -85,7 +86,32 @@ public class showdata extends HttpServlet {
 		catch(Exception e)
 		{
 			
-		}	
+		}
+
+		String phdStream=null;
+		String gradDegree=null;
+		String postGradDegree=null;
+		String board10=null;
+		String board12=null;
+		String gradDept=null;
+		String postGradDept=null;
+		String gradUniversity=null;
+		String postGradUniversity=null;
+		String gradState=null;
+		String postGradState=null;
+
+		phdStream=request.getParameter("phdStream").toString();
+		gradDegree=request.getParameter("gradDegree").toString();	
+		postGradDegree=request.getParameter("postGradDegree").toString();	
+		board10=request.getParameter("board10").toString();	
+		board12=request.getParameter("board12").toString();	
+		gradDept=request.getParameter("gradDept").toString();	
+		postGradDept=request.getParameter("postGradDept").toString();	
+		gradUniversity=request.getParameter("gradUniversity").toString();	
+		postGradUniversity=request.getParameter("postGradUniversity").toString();	
+		gradState=request.getParameter("gradState").toString();	
+		postGradState=request.getParameter("postGradState").toString();	
+	
 		BufferedReader buffr = null;
 		int flag=0;
 		String line;
@@ -192,6 +218,189 @@ public class showdata extends HttpServlet {
 
 					}
 				}
+				if(phdStream!="" && flag==0) //4
+				{
+					//System.out.println(phdStream+data[5]);
+					if(phdStream.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(phdStream.equals(data[5]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(gradDegree!="" && flag==0) //4
+				{
+					// System.out.println(gradDegree);
+					if(gradDegree.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(gradDegree.equals(data[24]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(postGradDegree!="" && flag==0) //4
+				{
+					// System.out.println(postGradDegree);
+					if(postGradDegree.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(postGradDegree.equals(data[45]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(board10!="" && flag==0) //4
+				{
+					// System.out.println(board10);
+					if(board10.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(board10.equals(data[18]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(board12!="" && flag==0) //4
+				{
+					// System.out.println(board12);
+					if(board12.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(board12.equals(data[21]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(gradDept!="" && flag==0) //4
+				{
+					// System.out.println(gradDept);
+					if(gradDept.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(gradDept.equals(data[25]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(postGradDept!="" && flag==0) //4
+				{
+					// System.out.println(postGradDept);
+					if(postGradDept.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(postGradDept.equals(data[44]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}
+				if(gradUniversity!="" && flag==0) //1
+				{
+					// System.out.println(data[0]+" "+gradUniversity);
+					if(gradUniversity.equals(data[27]))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
+				}
+				if(postGradUniversity!="" && flag==0) //1
+				{
+					// System.out.println(data[0]+" "+postGradUniversity);
+					if(postGradUniversity.equals(data[41]))
+						flag=0;
+					else
+						{
+							flag=1;
+							
+						}
+				}
+				if(gradState!="" && flag==0) //4
+				{
+					// System.out.println(gradState);
+					if(gradState.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(gradState.equals(data[29]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}if(postGradState!="" && flag==0) //4
+				{
+					// System.out.println(postGradState);
+					if(postGradState.equals("All"))
+					{
+						flag=0;
+					}
+					else
+						{
+							if(postGradState.equals(data[43]))
+								flag=0;
+							else
+								{
+							flag=1;
+							
+						}
+						}
+				}	
 			 	if(flag==1)
 			 		System.out.println("na ho paya");
 			 	else

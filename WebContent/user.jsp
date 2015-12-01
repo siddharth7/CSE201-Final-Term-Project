@@ -90,7 +90,7 @@
 						<div class="form-group">
 						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Mobile*</label>
 							<div class="col-md-9">
-								<input class="form-control" id="mobile" name="mobile" placeholder="" required>
+								<input pattern=".{10,}" maxlength="10" class="form-control" id="mobile" name="mobile" placeholder="" required>
 							</div>
 						</div>
 
@@ -317,7 +317,7 @@
 						<div class="form-group">
 						  	<label for="board10" class="col-md-3 control-label" style = "font-size: 17px;">Xth Marks(%)*</label>
 							<div class="col-md-9">
-								<input type = "number" class="form-control" id="board10p" name="board10p" placeholder="">
+								<input type = "number" class="form-control" id="board10p" name="board10p" placeholder="" min="0" max="100">
 							</div>
 						</div>
 
@@ -341,7 +341,7 @@
 						<div class="form-group">
 						  	<label for="board12" class="col-md-3 control-label" style = "font-size: 17px;">XIIth Marks(%)*</label>
 							<div class="col-md-9">
-								<input type = "number" class="form-control" id="board12p" name="board12p" placeholder="">
+								<input type = "number" class="form-control" id="board12p" name="board12p" placeholder="" min="0" max="100">
 							</div>
 						</div>
 
@@ -426,7 +426,7 @@
 								</div>
 								<div class="form-group" id="gradCGPAInput" name="gradCGPAInput" style = "margin-top: -17px;">
 									<div class="col-md-3">
-										<input class="form-control" id="gradCGPA" name="gradCGPA" placeholder="">
+										<input type="number" class="form-control" id="gradCGPA" name="gradCGPA" placeholder="">
 									</div>
 									<div class="col-md-3">
 										<select id="gradCGPAScale" name="gradCGPAScale" class="form-control">
@@ -444,7 +444,7 @@
 								</div>
 								<div class="form-group" id="gradMarksInput" name="gradMarksInput" style = "margin-top: -17px;">
 									<div class="col-md-3">
-										<input class="form-control" id="gradMarks" name="gradMarks" placeholder="">
+										<input type="number" class="form-control" id="gradMarks" name="gradMarks" placeholder="" min="0" max="100">
 									</div>
 								</div>
 							</div>
@@ -591,7 +591,7 @@
 											</div>
 											<div class="form-group" id="postCGPAInput" style = "margin-top: -17px;">
 												<div class="col-md-3">
-													<input class="form-control" id="postCGPA" name="postCGPA" placeholder="">
+													<input type="number" class="form-control" id="postCGPA" name="postCGPA" placeholder="">
 												</div>
 												<div class="col-md-3">
 													<select id="postCGPAScale" name="postCGPAScale" class="form-control">
@@ -609,7 +609,7 @@
 											</div>
 											<div class="form-group" id="postMarksInput" name="postMarksInput" style = "margin-top: -17px;">
 												<div class="col-md-3">
-													<input class="form-control" id="postMarks" name="postMarks" placeholder="">
+													<input type="number" class="form-control" id="postMarks" name="postMarks" placeholder="" min="0" max="100">
 												</div>
 											</div>
 										</div>
@@ -708,7 +708,7 @@
 									<div class="form-group">
 									  	<label for="gateArea" class="col-md-3 control-label" style = "font-size: 17px;">Marks(Out Of 100)</label>
 										<div class="col-md-9">
-											<input type="number" class="form-control" id="gateMarks" name="gateMarks" placeholder="">
+											<input type="number" class="form-control" id="gateMarks" name="gateMarks" placeholder="" min="0" max="100">
 										</div>
 									</div>
 

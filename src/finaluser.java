@@ -2,6 +2,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -254,7 +258,14 @@ public class finaluser extends HttpServlet {
 
 		String achievements=null;
 		achievements=request.getParameter("achievements").toString();
-		
+		String csv=null;
+		String sop=null;
+		String userid=null;
+		userid = UUID.randomUUID().toString();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		System.out.println(dateFormat.format(date));
+		String curDate=dateFormat.format(date);
 		String alldatastring=inputEmail+','+name+','+enrollmentNumber+','+addressOfCorrespondence+','+mobile+','+phdStream+','+PhDAreaPreference1+
 							','+PhDAreaPreference2+','+PhDAreaPreference3+','+gender+','+category+','+disabled+','+DateofBirth+
 							','+children+','+fatherName+','+nationality+','+permanentAddress+','+pincode+
@@ -264,7 +275,8 @@ public class finaluser extends HttpServlet {
 							postGradShow+','+postCollege+','+postCity+','+postState+','+postDept+','+postDegree+','+postThesis+','+
 							postYear+','+postCGMARKS+','+postCGPA+','+postCGPAScale+','+postMarks+','
 							+otherShow+','+examName+','+examSubject+','+examYear+','+examScore+','+examRank+','
-							+gateShow+','+gateArea+','+gateYear+','+gateMarks+','+gateScore+','+gateRank+','+achievements+',';
+							+gateShow+','+gateArea+','+gateYear+','+gateMarks+','+gateScore+','+gateRank+','+achievements+','
+							+csv+','+sop+','+userid+','+curDate+',';
 
 		System.out.println(alldatastring);
 		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/siddharthsingh/Desktop/userdata.txt", true)))) {

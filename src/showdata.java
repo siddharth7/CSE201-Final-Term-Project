@@ -550,13 +550,29 @@ public class showdata extends HttpServlet {
 			 	else
 			 	{
 			 		System.out.println(data[2]);
-			 		reqdata.add(data[2]);
+			 		Date date1, date2,date3;
+	        		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+	        	try 
+	        	{
+					date1 = sdf.parse(request.getParameter("startDate").toString());
+	        		date2 = sdf.parse(request.getParameter("endDate").toString());
+	        		date3=sdf.parse(data[68]);
+	        		if(date3.compareTo(date2)<=0 && date3.compareTo(date1)>=0)
+	        			{
+	        				reqdata.add(data[2]);
+	        			}
+	        		}
+	        	catch(Exception e)
+	        		{
+	        		
+	        		}
 			 	}
 			 }
 		}
 		catch(Exception e)
 		{
-			System.out.println("kat gaya");
+			System.out.println("nope");
 		}
 		
 		response.setContentType("text/html");

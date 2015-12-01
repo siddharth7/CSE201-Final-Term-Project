@@ -9,12 +9,13 @@ import java.util.UUID;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -83,9 +84,9 @@ public class finaluser extends HttpServlet {
 		}
 		System.out.println(request.getParameter("achievements"));
 
-
-
-		String inputEmail = request.getParameter("inputEmail").toString();
+        HttpSession ses = request.getSession(); 
+		String inputEmail = ses.getAttribute("email").toString();
+//		String inputEmail = request.getParameterValues("inputEmail").toString();
 		String name = request.getParameter("name").toString();
 		String enrollmentNumber = request.getParameter("enrollmentNumber").toString();
 		String addressOfCorrespondence= request.getParameter("addressOfCorrespondence").toString();

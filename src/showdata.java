@@ -576,7 +576,7 @@ public class showdata extends HttpServlet {
 		response.setContentType("text/html");
         PrintWriter writer = response.getWriter();        
         writer.println("<!DOCTYPE html>");
-        writer.println("<html lang="en">");
+        writer.println("<html lang=\"en\">");
         writer.println("<head>");
         writer.println("<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Roboto:300,400,500,700\" type=\"text/css\">");
         writer.println("<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">");
@@ -599,7 +599,9 @@ public class showdata extends HttpServlet {
         {
         	writer.println("<div class=\"row\">");
         	writer.println("<div class=\"col-md-3\">");
-        	writer.println("<p>" + reqdata[j] + "</p>");
+        	writer.println("<p>" + reqdata.get(j) + "</p>");
+        	if(reqdata.get(j).equals("1"))
+        		System.out.println("ayayayayayaya");
         	writer.println("</div>");
         	writer.println("</div>");
         }
@@ -610,7 +612,7 @@ public class showdata extends HttpServlet {
         writer.println("<script src=\"js/material.min.js\"></script>");
         writer.println("<script>");
         writer.println("$(document).ready(function(){$.material.init();});");
-        writer.println("</script>")
+        writer.println("</script>");
         writer.println("</body>");
         writer.println("</html>");
 	}

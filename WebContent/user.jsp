@@ -62,7 +62,7 @@
 						<div class="form-group">
 						  	<label for="inputEmail" class="col-md-3 control-label" style = "font-size: 17px;">Email*</label>
 							<div class="col-md-9">
-								<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" required>
+								<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" value=<%= session.getAttribute("email").toString() %> disabled>
 							</div>
 						</div>
 

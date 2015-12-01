@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -592,11 +590,16 @@ public class showdata extends HttpServlet {
         writer.println("<body>");
         writer.println("<div class=\"container\">");
         writer.println("<h1>Filtered Results</h1>");
+        writer.println("<div class=\"row\">");
+    	writer.println("<div class=\"col-md-3\">");
+    	writer.println("<h3>Roll Number</h3>");
+    	writer.println("</div>");
+    	writer.println("</div>");
         for(int j = 0;j<reqdata.size();j++)
         {
         	writer.println("<div class=\"row\">");
         	writer.println("<div class=\"col-md-3\">");
-        	writer.println(reqdata[j]);
+        	writer.println("<p>" + reqdata[j] + "</p>");
         	writer.println("</div>");
         	writer.println("</div>");
         }

@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/finaluser")
 public class finaluser extends HttpServlet {
-	private static final String UPLOAD_DIRECTORY = "upload";
-private static final int THRESHOLD_SIZE     = 1024 * 1024 * 3;  // 3MB
-private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
-private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 
     public finaluser() {
         super();
@@ -39,7 +35,7 @@ private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 		System.out.println(request.getParameter("enrollmentNumber"));
 		System.out.println(request.getParameter("addressOfCorrespondence"));
 		System.out.println(request.getParameter("mobile"));
-		System.out.println(request.getParameter("stream"));
+		System.out.println(request.getParameter("phdStream"));
 		System.out.println(request.getParameter("PhDAreaPreference1"));
 		System.out.println(request.getParameter("PhDAreaPreference2"));
 		System.out.println(request.getParameter("PhDAreaPreference3"));
@@ -68,10 +64,15 @@ private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 		System.out.println(request.getParameter("gradState"));
 		System.out.println(request.getParameter("gradYear"));
 		System.out.println(request.getParameter("stream"));
-		if(request.getParameter("stream").toString().equals("CGPA"))
+		if(request.getParameterValues("stream")[0].toString().equals("CGPA"))
 		{
 			System.out.println(request.getParameter("gradCGPAScale"));
 			System.out.println(request.getParameter("gradCGPA"));
+		}
+		else
+		{
+			System.out.println(request.getParameter("gradMarks"));
+
 		}
 		System.out.println(request.getParameter("achievements"));
 
@@ -112,15 +113,89 @@ private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 		String stream=request.getParameter("stream").toString();
 		String gradCGPAScale=null;
 		String gradCGPA= null;
-		String gradMarksInput=null;
-		if(request.getParameter("stream").toString().equals("CGPA"))
+		String gradMarks=null;
+		//System.out.println(request.getParameterValues("stream")[0]+"dadaa");
+		if(request.getParameterValues("stream")[0].toString().equals("CGPA"))
 		{
 			gradCGPAScale=request.getParameter("gradCGPAScale").toString();
 			gradCGPA=request.getParameter("gradCGPA").toString();
 		}
+		else if(request.getParameterValues("stream")[0].toString().equals("MARKS"))
+		{
+			gradMarks= request.getParameter("gradMarks").toString();
+		}
 		else
 		{
-			gradMarksInput= request.getParameter("gradMarksInput").toString();
+			
+		}
+		System.out.println("grDS MARKS AAYE" + gradMarks);
+
+		String eceShow=null;
+		String pref1=null;
+		String pref2=null;
+		String pref3=null;
+		String pref4=null;
+		try
+		{
+			
+			//System.out.println("bhai data aaya"+request.getParameterValues("eceShow")[0]);
+			if(request.getParameterValues("eceShow")[0].endsWith("eceShow"))
+			{
+			eceShow="YES";
+			pref1=request.getParameter("ecePref1").toString();
+			pref2=request.getParameter("ecePref2").toString();
+			pref3=request.getParameter("ecePref3").toString();
+			pref4=request.getParameter("ecePref4").toString();
+			}
+		}
+		catch(Exception e)
+		{
+			
+				System.out.println("kat gaya");
+				eceShow="NO";
+			
+		}
+		 String postGradShow=null;
+		 String postCollege=null;
+		 String postCity=null;
+		 String postState=null;
+		 String postDept=null;
+		 String postDegree=null;
+		 String postThesis=null;
+		 String postYear=null;
+		 String postCGMARKS=null;
+		 String postCGPA=null;
+		 String postCGPAScale=null;
+		 String postMarks=null;
+		try
+		{
+			postGradShow="YES";
+			postCollege=request.getParameter("postCollege").toString();
+			postCity=request.getParameter("postCity").toString();
+			postState=request.getParameter("postState").toString();
+			postDept=request.getParameter("postDept").toString();
+			postDegree=request.getParameter("postDegree").toString();
+			postThesis=request.getParameter("postThesis").toString();
+			postYear=request.getParameter("postYear").toString();
+
+		}
+		catch(Exception e)
+		{
+				System.out.println("kat gaya");
+				postGradShow="NO";
+		}
+		postCGMARKS=request.getParameterValues("postCGMARKS")[0].toString();
+		if(postGradShow.equals("YES"))
+		{
+			if(postCGMARKS.equals("CGPA"))
+			{
+				postCGPAScale=request.getParameter("postCGPAScale").toString();
+				postCGPA=request.getParameter("postCGPA").toString();
+			}
+			else
+			{
+				postMarks= request.getParameter("postMarks").toString();
+			}
 		}
 		String achievements=request.getParameter("achievements").toString();
 		
@@ -129,55 +204,11 @@ private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 							','+children+','+fatherName+','+nationality+','+permanentAddress+','+pincode+
 							','+board10+','+board10p+','+pass10+','+board12+','+board12p+','+pass12+','+gradDegree+','+gradDept+
 							','+gradCollege+','+gradUniversity+','+gradCity+','+gradState+','+gradYear+','+stream+','+gradCGPA+
-							','+gradCGPAScale+','+gradMarksInput+','+achievements;
+							','+gradCGPAScale+','+gradMarks+','+eceShow+','+pref1+','+pref2+','+pref3+','+pref4+','+
+							postGradShow+','+postCollege+','+postCity+','+postState+','+postDept+','+postDegree+','+postThesis+','+
+							postYear+','+postCGMARKS+','+postCGPAScale+','+postCGPAScale+','+postMarks+','
+							+achievements;
 
 		System.out.println(alldatastring);
-//		if (!ServletFileUpload.isMultipartContent(request)) {
-//		    PrintWriter writer = response.getWriter();
-//		    writer.println("Request does not contain upload data");
-//		    writer.flush();
-//		    return;
-//		}
-//		DiskFileItemFactory factory = new DiskFileItemFactory();
-//		factory.setSizeThreshold(THRESHOLD_SIZE);
-//		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
-//		 
-//		ServletFileUpload upload = new ServletFileUpload(factory);
-//		upload.setFileSizeMax(MAX_FILE_SIZE);
-//		upload.setSizeMax(MAX_REQUEST_SIZE);
-//		String uploadPath = getServletContext().getRealPath("")
-//		    + File.separator + UPLOAD_DIRECTORY;
-//		// creates the directory if it does not exist
-//		File uploadDir = new File(uploadPath);
-//		if (!uploadDir.exists()) {
-//		    uploadDir.mkdir();
-//		}
-//		List formItems=null;
-//		try {
-//			formItems = upload.parseRequest((RequestContext) request);
-//		} catch (FileUploadException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		Iterator iter = formItems.iterator();
-//		 
-//		// iterates over form's fields
-//		while (iter.hasNext()) {
-//		    FileItem item = (FileItem) iter.next();
-//		    // processes only fields that are not form fields
-//		    if (!item.isFormField()) {
-//		        String fileName = new File(item.getName()).getName();
-//		        String filePath = uploadPath + File.separator + fileName;
-//		        File storeFile = new File(filePath);
-//		 
-//		        // saves the file on disk
-//		        try {
-//					item.write(storeFile);
-//				} catch (Exception e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//		    }
-//		}
 	}
 }

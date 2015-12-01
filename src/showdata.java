@@ -586,7 +586,7 @@ public class showdata extends HttpServlet {
         writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap-material-design.css\">");
         writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/ripples.min.css\">");
         writer.println("<style type=\"text/css\">");
-        writer.println("body {background-color: #FFFFFF;}");
+        writer.println("body {background-color: #FFFFFF;} p{font-size: 17px;}");
         writer.println("</style>");
         writer.println("</head>");
         writer.println("<body>");
@@ -594,8 +594,10 @@ public class showdata extends HttpServlet {
         writer.println("<h1>Filtered Results</h1>");
         for(int j = 0;j<reqdata.size();j++)
         {
+        	writer.println("<div class=\"row\">");
         	writer.println("<div class=\"col-md-3\">");
         	writer.println(reqdata[j]);
+        	writer.println("</div>");
         	writer.println("</div>");
         }
         writer.println("</div>");

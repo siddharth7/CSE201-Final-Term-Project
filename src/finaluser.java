@@ -90,6 +90,7 @@ public class finaluser extends HttpServlet {
 		String name = request.getParameter("name").toString();
 		String enrollmentNumber = request.getParameter("enrollmentNumber").toString();
 		String addressOfCorrespondence= request.getParameter("addressOfCorrespondence").toString();
+		addressOfCorrespondence = addressOfCorrespondence.replaceAll(",", " ");
 		String mobile=request.getParameter("mobile").toString();
 		String phdStream= request.getParameter("phdStream").toString();
 		String PhDAreaPreference1= request.getParameter("PhDAreaPreference1").toString();
@@ -103,6 +104,7 @@ public class finaluser extends HttpServlet {
 		String fatherName=request.getParameter("fatherName").toString();
 		String nationality= request.getParameter("nationality").toString();
 		String permanentAddress= request.getParameter("permanentAddress").toString();
+		permanentAddress = permanentAddress.replaceAll(",", " ");
 		String pincode = request.getParameter("pincode").toString();
 		
 		String board10=request.getParameter("board10").toString();
@@ -276,15 +278,67 @@ public class finaluser extends HttpServlet {
 							postGradShow+','+postCollege+','+postCity+','+postState+','+postDept+','+postDegree+','+postThesis+','+
 							postYear+','+postCGMARKS+','+postCGPA+','+postCGPAScale+','+postMarks+','
 							+otherShow+','+examName+','+examSubject+','+examYear+','+examScore+','+examRank+','
-							+gateShow+','+gateArea+','+gateYear+','+gateMarks+','+gateScore+','+gateRank+','+achievements+','
-							+csv+','+sop+','+userid+','+curDate+',';
+							+gateShow+','+gateArea+','+gateYear+','+gateMarks+','+gateScore+','+gateRank+','+achievements+',';
+							//+csv+','+sop+','+userid+','+curDate+',';
+		ses.setAttribute("alldata", alldatastring);
+		ses.setAttribute("rollno", enrollmentNumber);
 
-		System.out.println(alldatastring);
-		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/siddharthsingh/Desktop/userdata.txt", true)))) {
-		    out.println(alldatastring);
-		}catch (IOException e) {
-		    //exception handling left as an exercise for the reader
-		}
+//		System.out.println(alldatastring);
+//		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/siddharthsingh/Desktop/userdata.txt", true)))) {
+//		    out.println(alldatastring);
+//		}catch (IOException e) {
+//		    //exception handling left as an exercise for the reader
+//		}
+
+		response.setContentType("text/html");
+        PrintWriter writer = response.getWriter(); 
+		writer.println("<!DOCTYPE html>");
+        writer.println("<html lang=\"en\">");
+        writer.println("<head>");
+        writer.println("<link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Roboto:300,400,500,700\" type=\"text/css\">");
+        writer.println("<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">");
+        writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap.min.css\">");
+        writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap-material-design.css\">");
+        writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/ripples.min.css\">");
+        writer.println("<style type=\"text/css\">");
+        writer.println("body {background-color: #FFFFFF;} p{font-size: 17px;}");
+        writer.println("</style>");
+        writer.println("</head>");
+        writer.println("<body>");
+        writer.println("<div class=\"container\">");
+        writer.println("<h1>File Uploads</h1>");
+        writer.println("<form action=\"ok\" method=\"post\" enctype=\"multipart/form-data\">");
+
+        writer.println("<div class=\"form-group\">");
+		writer.println("<label for=\"cv\" class=\"col-md-3 control-label\" style = \"font-size: 17px;\">CV/Resume*</label>");
+      	writer.println("<div class=\"col-md-9\">");
+    	writer.println("<input type=\"text\" readonly=\"\" class=\"form-control\" placeholder=\"Browse...\">");
+       	writer.println("<input type=\"file\" id=\"cv\" name=\"cv\" multiple=\"\">");
+		writer.println("</div>");
+		writer.println("</div>");
+
+		writer.println("<div class=\"form-group\">");
+		writer.println("<label for=\"sop\" class=\"col-md-3 control-label\" style = \"font-size: 17px;\">Statement of Purpose*</label>");
+      	writer.println("<div class=\"col-md-9\">");
+    	writer.println("<input type=\"text\" readonly=\"\" class=\"form-control\" placeholder=\"Browse...\">");
+       	writer.println("<input type=\"file\" id=\"sop\" name=\"sop\" multiple=\"\">");
+		writer.println("</div>");
+		writer.println("</div>");
+
+		writer.println("<div class=\"col-md-offset-3 col-md-3\">");
+		writer.println("<button type=\"submit\" class=\"btn btn-primary\">Submit</button>");
+		writer.println("</div>");
+
+        writer.println("</form>");
+        writer.println("<script src=\"js/jquery.min.js\"></script>");
+        writer.println("<script src=\"js/bootstrap.min.js\"></script>");
+        writer.println("<script src=\"js/ripples.min.js\"></script>");
+        writer.println("<script src=\"js/material.min.js\"></script>");
+        writer.println("<script>");
+        writer.println("$(document).ready(function(){$.material.init();});");
+        writer.println("</script>");
+        writer.println("</body>");
+        writer.println("</html>");
 		
 	}
 }

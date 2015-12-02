@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/ripples.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>current orders</title>
+<title>Filter Data</title>
 </head>
 <body>
 <%
@@ -168,7 +168,7 @@ public void printorders(javax.servlet.jsp.JspWriter myOut)
 								</div>
 
 								<div class="col-md-4">
-									<input type="date" class="form-control" name="DateofBirth" id="dob" placeholder="">
+									<input type="date" class="form-control" name="DateofBirth" id="dob" placeholder="dd-mm-yyyy">
 								</div>
 							</div>
 						</div>
@@ -417,14 +417,14 @@ public void printorders(javax.servlet.jsp.JspWriter myOut)
 					<div class="form-group">
 					  	<label class="col-md-3 control-label" style = "font-size: 17px;">Applications Dated From</label>
 						<div class="col-md-2">
-							<input type="date" class="form-control" name="startDate" id="startDate" placeholder="">
+							<input type="date" class="form-control" name="startDate" id="startDate" placeholder="yyyy-mm-dd">
 						</div>
 					</div>
 
 					<div class="form-group">
 					  	<label class="col-md-3 control-label" style = "font-size: 17px;">Applications Dated Upto</label>
 						<div class="col-md-2">
-							<input type="date" class="form-control" name="endDate" id="endDate" placeholder="">
+							<input type="date" class="form-control" name="endDate" id="endDate" placeholder="yyyy-mm-dd">
 						</div>
 					</div>
 
@@ -440,9 +440,12 @@ public void printorders(javax.servlet.jsp.JspWriter myOut)
 			</div>
 		</div>
 	</form>
-<form action="logout" method="get">
-	<button type="submit">LogOut</button>
-</form>
+	<div class="col-md-offset-1 col-md-3">
+		<form action="logout" method="get">
+			<button type="submit" class="btn btn-raised btn-info">LogOut</button>
+		</form>
+	</div>
+	
 <script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ripples.min.js"></script>

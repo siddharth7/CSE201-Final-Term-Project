@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -172,6 +174,7 @@ public class showdata extends HttpServlet {
 
 		BufferedReader buffr = null;
 		ArrayList<String> reqdata= new ArrayList<>();
+		HashMap<String, ArrayList<String>> redata= new HashMap<String, ArrayList<String>>();
 		int flag=0;
 		String line;
 		try
@@ -255,7 +258,7 @@ public class showdata extends HttpServlet {
 				if(dobTime!=null && flag==0)
 				{
 					Date date1, date2;
-		        	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyy");
+		        	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		        	date1 = sdf.parse(data[12]);
 	        		date2 = sdf.parse(DateofBirth);
 	        		// System.out.println(date1.compareTo(date2)+ "date compareTo");
@@ -559,6 +562,7 @@ public class showdata extends HttpServlet {
 	        		if(date3.compareTo(date2)<=0 && date3.compareTo(date1)>=0)
 	        			{
 	        				reqdata.add(data[2]);
+	        				redata.put(data[2], new ArrayList<String>(Arrays.asList(data[1], data[65], data[66])));
 	        			}
 	        		}
 	        	catch(Exception e)
@@ -594,15 +598,29 @@ public class showdata extends HttpServlet {
     	writer.println("<div class=\"col-md-3\">");
     	writer.println("<h3>Roll Number</h3>");
     	writer.println("</div>");
+    	writer.println("<div class=\"col-md-3\">");
+    	writer.println("<h3>Name</h3>");
+    	writer.println("</div>");
+    	writer.println("<div class=\"col-md-6\">");
+    	writer.println("<h3>CV and SOP</h3>");
+    	writer.println("</div>");
     	writer.println("</div>");
         for(int j = 0;j<reqdata.size();j++)
         {
         	writer.println("<div class=\"row\">");
         	writer.println("<div class=\"col-md-3\">");
         	writer.println("<p>" + reqdata.get(j) + "</p>");
-        	if(reqdata.get(j).equals("1"))
-        		System.out.println("ayayayayayaya");
         	writer.println("</div>");
+        	writer.println("<div class=\"col-md-3\">");
+        	writer.println("<p>" + redata.get(reqdata.get(j)).get(0) + "</p>");
+        	writer.println("</div>");
+        	writer.println("<div class=\"col-md-6\">");
+        	writer.println("<p>" + redata.get(reqdata.get(j)).get(1) + "</p>");
+        	writer.println("<p>" + redata.get(reqdata.get(j)).get(2) + "</p>");
+        	writer.println("</div>");
+//        	writer.println("<div class=\"col-md-3\">");
+//        	writer.println("<p>" + redata.get(reqdata.get(j)).get(0) + "</p>");
+//        	writer.println("</div>");
         	writer.println("</div>");
         }
         writer.println("</div>");

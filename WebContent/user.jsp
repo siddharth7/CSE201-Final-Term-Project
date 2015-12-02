@@ -238,7 +238,7 @@
 						<div class="form-group">
 						  	<label for="mobile" class="col-md-3 control-label" style = "font-size: 17px;">Date of Birth*</label>
 							<div class="col-md-2">
-								<input type="date" class="form-control" name="DateofBirth" id="dob" placeholder="">
+								<input type="date" class="form-control" name="DateofBirth" id="dob" placeholder="dd-mm-yyyy">
 							</div>
 						</div>
 
@@ -740,7 +740,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<!-- <div class="form-group">
 						    <label for="cv" class="col-md-3 control-label" style = "font-size: 17px;">CV/Resume*</label>
 
 					      	<div class="col-md-9">
@@ -757,7 +757,7 @@
 					        	<input type="file" id="sop" multiple="">
 					      	</div>
 						</div>
-
+ -->
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-5">
 								<button type="submit" class="btn btn-primary">Save</button>
@@ -980,7 +980,7 @@
 				</div>
 
 <!-- 				<a href="" class="btn btn-success">Submit</a>
- -->				<button type="submit" class="btn btn-primary">Submit</button>
+ -->				<button type="submit" class="btn btn-raised btn-success">Submit</button>
 				</div>
 		</div>
 	</div>
